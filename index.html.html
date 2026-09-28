@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhu Library — Explore 50+ Curated Volumes</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f7ff',
+                            100: '#ebf0fe',
+                            500: '#4f46e5',
+                            600: '#4338ca',
+                            700: '#3730a3',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .book-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .book-card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+    <header class="sticky top-0 z-40 glass-panel border-b border-slate-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md shadow-indigo-200 group-hover:scale-105 transition-transform">
+                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold tracking-tight text-slate-900">Madhu<span class="text-indigo-600">Library</span></span>
+                    <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Pro Archive</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="#catalog" class="hover:text-indigo-600 transition-colors">Explore Books</a>
+                <a href="#categories" class="hover:text-indigo-600 transition-colors">Categories</a>
+                <a href="#about" class="hover:text-indigo-600 transition-colors">About</a>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="flex items-center space-x-4">
+                <button onclick="openWishlistModal()" class="relative p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors" title="Saved Wishlist">
+                    <i data-lucide="bookmark" class="w-5 h-5"></i>
+                    <span id="wishlist-badge" class="absolute top-1 right-1 w-4 h-4 rounded-full bg-indigo-600 text-white text-[10px] font-bold flex items-center justify-center scale-0 transition-transform">0</span>
+                </button>
+                <button onclick="scrollToCatalog()" class="hidden sm:inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium shadow-sm shadow-indigo-200 transition-all">
+                    <i data-lucide="compass" class="w-4 h-4"></i>
+                    <span>Browse 50+ Books</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative overflow-hidden bg-gradient-to-b from-indigo-50/60 via-white to-slate-50 py-16 lg:py-24 border-b border-slate-200/60">
+        <div class="absolute inset-0 opacity-30 pointer-events-none">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-indigo-300 rounded-full blur-3xl"></div>
+            <div class="absolute top-60 -left-20 w-80 h-80 bg-violet-200 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-semibold uppercase tracking-wider">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        <span>Over 50+ Curated Volumes in Madhu Library</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-900 leading-tight">
+                        Welcome to Madhu Library, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600 italic">Your Literary Sanctuary.</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0">
+                        Explore our comprehensive digital archive spanning across Technology, Sci-Fi, Fiction, Philosophy, Classics, Business, and Psychology with instant synopses and chapter breakdowns.
+                    </p>
+                    
+                    <!-- Hero Search Bar -->
+                    <div class="max-w-xl mx-auto lg:mx-0 pt-2">
+                        <div class="flex items-center bg-white p-2 rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200">
+                            <div class="pl-3 text-slate-400">
+                                <i data-lucide="search" class="w-5 h-5"></i>
+                            </div>
+                            <input type="text" id="hero-search-input" placeholder="Search across 50+ books by title, author..." class="w-full px-3 py-2 text-sm focus:outline-none text-slate-700 placeholder-slate-400 bg-transparent">
+                            <button onclick="triggerHeroSearch()" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm transition-colors shadow-sm flex-shrink-0">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="pt-6 grid grid-cols-3 gap-6 max-w-lg mx-auto lg:mx-0 border-t border-slate-200/80">
+                        <div>
+                            <p class="text-2xl font-bold font-serif text-slate-900">50+</p>
+                            <p class="text-xs text-slate-500 uppercase tracking-wider mt-0.5">Catalog Titles</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold font-serif text-slate-900">7</p>
+                            <p class="text-xs text-slate-500 uppercase tracking-wider mt-0.5">Genres</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold font-serif text-slate-900">4.9/5</p>
+                            <p class="text-xs text-slate-500 uppercase tracking-wider mt-0.5">Reader Score</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Showcase -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-violet-500 rounded-3xl transform rotate-3 scale-105 opacity-20 blur-lg"></div>
+                        <div class="relative bg-white p-6 rounded-3xl shadow-2xl border border-slate-100">
+                            <div class="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md mb-5 group">
+                                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600" alt="Featured Book" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x800/4f46e5/ffffff?text=Madhu+Library'">
+                                <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-amber-500 text-white text-xs font-semibold tracking-wide shadow">
+                                    Madhu Pick
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-semibold text-indigo-600 uppercase tracking-widest">Featured</span>
+                                    <div class="flex items-center text-amber-500 text-xs font-bold">
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500 mr-1"></i>
+                                        <span>4.9</span>
+                                    </div>
+                                </div>
+                                <h3 class="font-serif font-bold text-xl text-slate-900 leading-snug">The Echoes of Tomorrow</h3>
+                                <p class="text-sm text-slate-500">by Elena Rostova</p>
+                                <div class="pt-3 flex items-center justify-between border-t border-slate-100">
+                                    <span class="text-lg font-bold text-slate-900">$24.99</span>
+                                    <button onclick="openBookModal('book-1')" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white text-xs font-medium transition-colors">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <!-- Section Header & Filter Controls -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+            <div>
+                <span class="text-xs font-semibold uppercase tracking-widest text-indigo-600">Madhu Library Catalog</span>
+                <h2 class="text-3xl font-serif font-bold text-slate-900 mt-1">Explore All 50+ Volumes</h2>
+            </div>
+
+            <!-- Categories Tabs -->
+            <div id="categories" class="flex flex-wrap items-center gap-2">
+                <button onclick="filterCategory('All')" class="category-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-indigo-600 text-white shadow-sm shadow-indigo-200">
+                    All Books (50)
+                </button>
+                <button onclick="filterCategory('Technology')" class="category-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    Technology
+                </button>
+                <button onclick="filterCategory('Sci-Fi')" class="category-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    Sci-Fi
+                </button>
+                <button onclick="filterCategory('Fiction')" class="category-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    Fiction
+                </button>
+                <button onclick="filterCategory('Business')" class="category-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    Business
+                </button>
+                <button onclick="filterCategory('Philosophy')" class="category-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    Philosophy
+                </button>
+                <button onclick="filterCategory('Classics')" class="category-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    Classics
+                </button>
+            </div>
+        </div>
+
+        <!-- Search and Sort Toolbar -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="relative w-full sm:w-96">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                    <i data-lucide="search" class="w-4 h-4"></i>
+                </span>
+                <input type="text" id="catalog-search" oninput="handleSearch()" placeholder="Filter current list..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all">
+            </div>
+
+            <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+                <span class="text-xs text-slate-500 font-medium">Sort by:</span>
+                <select id="sort-select" onchange="handleSort()" class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600">
+                    <option value="featured">Featured / Default</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="title">Title (A-Z)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Books Grid Container -->
+        <div id="books-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Dynamically populated books -->
+        </div>
+
+        <!-- Empty State Notice -->
+        <div id="empty-state" class="hidden text-center py-20">
+            <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="book-x" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-lg font-serif font-bold text-slate-900">No books found in Madhu Library</h3>
+            <p class="text-sm text-slate-500 mt-1">Try adjusting your search query or category filters.</p>
+            <button onclick="resetFilters()" class="mt-4 px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-medium hover:bg-indigo-700 transition-colors">
+                Reset Filters
+            </button>
+        </div>
+    </main>
+
+    <section id="about" class="bg-indigo-900 text-white py-20 my-12 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl mx-auto text-center space-y-6">
+                <span class="px-3 py-1 rounded-full bg-indigo-800 text-indigo-200 text-xs font-semibold uppercase tracking-widest">
+                    About Madhu Library
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold">Your Ultimate Digital Archive</h2>
+                <p class="text-indigo-200 text-base sm:text-lg leading-relaxed">
+                    Madhu Library is curated to bring together world-class literature, technical guides, philosophical inquiries, and sci-fi masterpieces in one elegant interface.
+                </p>
+                <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+                    <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-indigo-400 mb-3"></i>
+                        <h4 class="font-bold text-lg mb-1">Curated Catalog</h4>
+                        <p class="text-xs text-indigo-200">Over 50 rigorously selected titles across multiple disciplines.</p>
+                    </div>
+                    <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50">
+                        <i data-lucide="zap" class="w-8 h-8 text-indigo-400 mb-3"></i>
+                        <h4 class="font-bold text-lg mb-1">Detailed Outlines</h4>
+                        <p class="text-xs text-indigo-200">Comprehensive summaries and chapter breakdowns for every book.</p>
+                    </div>
+                    <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50">
+                        <i data-lucide="globe" class="w-8 h-8 text-indigo-400 mb-3"></i>
+                        <h4 class="font-bold text-lg mb-1">Global Access</h4>
+                        <p class="text-xs text-indigo-200">Instant digital formats, audiobooks, and paperback editions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md">
+                        <i data-lucide="book-open" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-lg font-serif font-bold text-slate-900">Madhu Library</span>
+                </div>
+                <p class="text-sm text-slate-500 text-center">
+                    &copy; 2026 Madhu Library. All rights reserved.
+                </p>
+                <div class="flex items-center space-x-4 text-slate-400">
+                    <a href="#" class="hover:text-indigo-600 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-indigo-600 transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-indigo-600 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Book Details Modal -->
+    <div id="book-modal" class="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 transition-opacity">
+        <div id="modal-content-box" class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col">
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80 sticky top-0 z-10">
+                <div class="flex items-center space-x-2">
+                    <span id="modal-category-tag" class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-semibold uppercase tracking-wider">Category</span>
+                    <span id="modal-badge-tag" class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-semibold uppercase tracking-wider">Bestseller</span>
+                </div>
+                <button onclick="closeBookModal()" class="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div class="p-6 sm:p-8 overflow-y-auto space-y-8 flex-1">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-4">
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-slate-100 bg-slate-100">
+                            <img id="modal-book-img" src="" alt="Book Cover" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x800/4f46e5/ffffff?text=Madhu+Library'">
+                        </div>
+                        <div class="mt-4 flex gap-2">
+                            <button onclick="toggleWishlistFromModal()" id="modal-wishlist-btn" class="flex-1 py-3 px-4 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium text-sm flex items-center justify-center space-x-2 transition-colors">
+                                <i data-lucide="bookmark" class="w-4 h-4"></i>
+                                <span id="modal-wishlist-text">Save to Wishlist</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-8 space-y-4">
+                        <h1 id="modal-book-title" class="text-3xl font-serif font-bold text-slate-900 leading-tight">Book Title</h1>
+                        <p class="text-lg text-slate-600">by <span id="modal-book-author" class="font-semibold text-slate-900">Author Name</span></p>
+                        
+                        <div class="flex flex-wrap items-center gap-4 py-2 border-y border-slate-100">
+                            <div class="flex items-center text-amber-500 font-bold text-sm">
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-500 mr-1.5"></i>
+                                <span id="modal-book-rating">4.8</span>
+                            </div>
+                            <div class="h-4 w-px bg-slate-200"></div>
+                            <div class="text-sm text-slate-600"><span class="font-semibold text-slate-900" id="modal-book-pages">320</span> Pages</div>
+                            <div class="h-4 w-px bg-slate-200"></div>
+                            <div class="text-sm text-slate-600">Published: <span class="font-semibold text-slate-900" id="modal-book-year">2024</span></div>
+                            <div class="h-4 w-px bg-slate-200"></div>
+                            <div class="text-sm text-slate-600">ISBN: <span class="font-mono text-xs font-semibold text-slate-900" id="modal-book-isbn">978-3-16-148410-0</span></div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">Author Bio</h3>
+                            <p id="modal-author-bio" class="text-sm text-slate-600 leading-relaxed">Author biography information...</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase font-semibold">Madhu Library Price</span>
+                                    <div class="text-3xl font-serif font-bold text-slate-900" id="modal-book-price">$29.99</div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    <span class="text-xs font-semibold text-emerald-700">Available Instantly</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <button onclick="simulateBuy('Digital eBook')" class="py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-xs flex items-center justify-center space-x-2 transition-colors shadow-sm">
+                                    <i data-lucide="tablet" class="w-4 h-4"></i>
+                                    <span>Download eBook</span>
+                                </button>
+                                <button onclick="simulateBuy('Hardcover')" class="py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs flex items-center justify-center space-x-2 transition-colors shadow-sm">
+                                    <i data-lucide="book" class="w-4 h-4"></i>
+                                    <span>Hardcover</span>
+                                </button>
+                                <button onclick="simulateBuy('Audiobook')" class="py-2.5 px-4 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-medium text-xs flex items-center justify-center space-x-2 transition-colors shadow-sm">
+                                    <i data-lucide="headphones" class="w-4 h-4"></i>
+                                    <span>Audiobook</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <h3 class="text-lg font-serif font-bold text-slate-900 flex items-center">
+                        <i data-lucide="file-text" class="w-5 h-5 text-indigo-600 mr-2"></i>
+                        Comprehensive Synopsis
+                    </h3>
+                    <p id="modal-book-synopsis" class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Synopsis description...
+                    </p>
+                </div>
+
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <h3 class="text-lg font-serif font-bold text-slate-900 flex items-center">
+                        <i data-lucide="list-ordered" class="w-5 h-5 text-indigo-600 mr-2"></i>
+                        Chapter Breakdown & Outline
+                    </h3>
+                    <div id="modal-chapters-list" class="space-y-2"></div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-slate-100">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-serif font-bold text-slate-900 flex items-center">
+                            <i data-lucide="message-square" class="w-5 h-5 text-indigo-600 mr-2"></i>
+                            Reader Reviews & Ratings
+                        </h3>
+                        <button onclick="openReviewPrompt()" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800">
+                            + Add Review
+                        </button>
+                    </div>
+                    <div id="modal-reviews-list" class="space-y-3"></div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-slate-100 pb-4">
+                    <h3 class="text-lg font-serif font-bold text-slate-900 flex items-center">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-indigo-600 mr-2"></i>
+                        Related Recommendations
+                    </h3>
+                    <div id="modal-related-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div id="wishlist-modal" class="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 transition-opacity">
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden p-6 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="bookmark" class="w-5 h-5 text-indigo-600"></i>
+                    <h3 class="text-xl font-serif font-bold text-slate-900">Your Saved Wishlist</h3>
+                </div>
+                <button onclick="closeWishlistModal()" class="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div id="wishlist-items-container" class="space-y-4 max-h-96 overflow-y-auto"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 transform translate-y-24 opacity-0 transition-all duration-300">
+        <div id="toast-icon" class="text-emerald-400">
+            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+        </div>
+        <div>
+            <p id="toast-title" class="text-sm font-bold">Success</p>
+            <p id="toast-msg" class="text-xs text-slate-300">Action completed successfully.</p>
+        </div>
+    </div>
+
+    <script>
+        // 50 Comprehensive Book Records for Madhu Library
+        const booksData = [
+            {
+                id: "book-1",
+                title: "The Echoes of Tomorrow",
+                author: "Elena Rostova",
+                category: "Fiction",
+                badge: "Bestseller",
+                rating: 4.9,
+                reviewsCount: 2420,
+                price: 24.99,
+                pages: 384,
+                year: 2024,
+                isbn: "978-0-14-312774-8",
+                image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Elena Rostova is an award-winning novelist blending philosophical dilemmas with gripping emotional drama.",
+                synopsis: "Set in a near-future St. Petersburg, Dr. Aris Thorne invents a resonance chamber capturing acoustic echoes from historical eras.",
+                chapters: [
+                    { num: "01", title: "The Resonance Chamber", summary: "Introduction to Dr. Thorne's laboratory." },
+                    { num: "02", title: "Frequencies of the Winter Palace", summary: "Uncovering whispered conversations from 1917." }
+                ],
+                reviews: [{ user: "Marcus Vance", rating: 5, date: "2 weeks ago", comment: "An absolute masterpiece." }]
+            },
+            {
+                id: "book-2",
+                title: "Quantum Paradox & Reality",
+                author: "Dr. Julian Vance",
+                category: "Sci-Fi",
+                badge: "Staff Pick",
+                rating: 4.8,
+                reviewsCount: 1890,
+                price: 29.50,
+                pages: 420,
+                year: 2025,
+                isbn: "978-1-5011-7134-5",
+                image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Dr. Julian Vance is a theoretical physicist at CERN.",
+                synopsis: "An exhilarating dive into multi-verse theory, entanglement anomalies, and observer-dependent reality.",
+                chapters: [
+                    { num: "01", title: "The Double Slit Reconsidered", summary: "Modern quantum sensors." },
+                    { num: "02", title: "Schrödinger's Cat", summary: "Macroscopic superposition." }
+                ],
+                reviews: [{ user: "Arthur Pendelton", rating: 5, date: "3 weeks ago", comment: "Brilliant explanation of physics." }]
+            },
+            {
+                id: "book-3",
+                title: "Architectures of Modern Code",
+                author: "Samantha Lin",
+                category: "Technology",
+                badge: "Must Read",
+                rating: 4.9,
+                reviewsCount: 3100,
+                price: 45.00,
+                pages: 512,
+                year: 2023,
+                isbn: "978-0-596-52068-7",
+                image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Samantha Lin is a distinguished software architect.",
+                synopsis: "The definitive guide to building scalable, resilient distributed systems and microservices.",
+                chapters: [
+                    { num: "01", title: "Distributed Resilience", summary: "Designing for failure." },
+                    { num: "02", title: "Event Streaming", summary: "Apache Kafka at scale." }
+                ],
+                reviews: [{ user: "David Miller", rating: 5, date: "2 months ago", comment: "The holy grail of backend design." }]
+            },
+            {
+                id: "book-4",
+                title: "Silence of the Autumn Forest",
+                author: "Henrietta Moore",
+                category: "Classics",
+                badge: "Award Winner",
+                rating: 4.7,
+                reviewsCount: 950,
+                price: 18.99,
+                pages: 260,
+                year: 1968,
+                isbn: "978-0-14-018755-7",
+                image: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Henrietta Moore was a celebrated English poet.",
+                synopsis: "A lyrical exploration of memory, loss, and reconciliation in rural England.",
+                chapters: [
+                    { num: "01", title: "The First Frost", summary: "Introduction to Oakhaven." },
+                    { num: "02", title: "Letters from the Front", summary: "Forgotten correspondence." }
+                ],
+                reviews: [{ user: "Clara Bow", rating: 5, date: "5 days ago", comment: "Poetic and hauntingly beautiful." }]
+            },
+            {
+                id: "book-5",
+                title: "The Digital Nomad Manifesto",
+                author: "Lucas K. Thorne",
+                category: "Business",
+                badge: "Trending",
+                rating: 4.6,
+                reviewsCount: 1450,
+                price: 21.99,
+                pages: 310,
+                year: 2024,
+                isbn: "978-1-119-09257-8",
+                image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Lucas K. Thorne is a remote work pioneer.",
+                synopsis: "How to decouple your career from physical geography while building sustainable remote businesses.",
+                chapters: [
+                    { num: "01", title: "Location Independence", summary: "Outcome-based work culture." },
+                    { num: "02", title: "Asynchronous Teams", summary: "Eliminating meeting fatigue." }
+                ],
+                reviews: [{ user: "Zack Taylor", rating: 4, date: "3 weeks ago", comment: "Very practical advice." }]
+            },
+            {
+                id: "book-6",
+                title: "Chronicles of the Deep Cosmos",
+                author: "Aria Sterling",
+                category: "Sci-Fi",
+                badge: "Bestseller",
+                rating: 4.9,
+                reviewsCount: 2890,
+                price: 27.00,
+                pages: 450,
+                year: 2025,
+                isbn: "978-0-7653-2635-7",
+                image: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Aria Sterling is a former NASA engineer.",
+                synopsis: "Humanity's first interstellar generation ship discovers an ancient alien Dyson swarm.",
+                chapters: [
+                    { num: "01", title: "Deceleration Burn", summary: "Final weeks before arrival." },
+                    { num: "02", title: "The Megastructure", summary: "Artificial energy signatures." }
+                ],
+                reviews: [{ user: "Liam O'Connor", rating: 5, date: "1 month ago", comment: "Mind-blowing scale!" }]
+            },
+            {
+                id: "book-7",
+                title: "The Art of Clean Algorithms",
+                author: "Vikram Malhotra",
+                category: "Technology",
+                badge: "Popular",
+                rating: 4.8,
+                reviewsCount: 1670,
+                price: 39.99,
+                pages: 480,
+                year: 2024,
+                isbn: "978-0-201-63361-0",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Vikram Malhotra is professor of computer science at MIT.",
+                synopsis: "Master fundamental data structures and algorithmic paradigms for high-performance computing.",
+                chapters: [
+                    { num: "01", title: "Amortized Analysis", summary: "Understanding true runtime complexity." },
+                    { num: "02", title: "Graph Traversals", summary: "BFS and DFS at petabyte scale." }
+                ],
+                reviews: [{ user: "Priya Nair", rating: 5, date: "2 weeks ago", comment: "Cleared up difficult concepts." }]
+            },
+            {
+                id: "book-8",
+                title: "Whispers in the Misty Moor",
+                author: "Eleanor Vance",
+                category: "Fiction",
+                badge: "Staff Pick",
+                rating: 4.7,
+                reviewsCount: 1120,
+                price: 19.50,
+                pages: 310,
+                year: 2023,
+                isbn: "978-0-06-112008-4",
+                image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Eleanor Vance writes atmospheric gothic mysteries.",
+                synopsis: "A young botanist inherits an isolated estate on the Isle of Skye.",
+                chapters: [
+                    { num: "01", title: "Arrival at Dunvegan", summary: "Stepping into the fog-shrouded manor." },
+                    { num: "02", title: "The Botanical Ledger", summary: "Decoding notes." }
+                ],
+                reviews: [{ user: "George Orwell", rating: 5, date: "1 month ago", comment: "Atmospheric perfection." }]
+            },
+            {
+                id: "book-9",
+                title: "Stoic Wisdom for Modern Leaders",
+                author: "Marcus Aurelius Jr.",
+                category: "Philosophy",
+                badge: "Bestseller",
+                rating: 4.9,
+                reviewsCount: 4120,
+                price: 22.00,
+                pages: 240,
+                year: 2022,
+                isbn: "978-0-385-42611-4",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Marcus Aurelius Jr. studies classical philosophy.",
+                synopsis: "Applying ancient Marcus Aurelius principles to modern corporate leadership and personal resilience.",
+                chapters: [
+                    { num: "01", title: "The Inner Citadel", summary: "Controlling emotional responses." },
+                    { num: "02", title: "Obstacle is the Way", summary: "Leveraging adversity." }
+                ],
+                reviews: [{ user: "Sarah Connor", rating: 5, date: "3 days ago", comment: "Life changing perspective." }]
+            },
+            {
+                id: "book-10",
+                title: "Venture Capital Playbook",
+                author: "Chen Wei",
+                category: "Business",
+                badge: "Popular",
+                rating: 4.8,
+                reviewsCount: 1980,
+                price: 35.00,
+                pages: 360,
+                year: 2024,
+                isbn: "978-1-59184-748-9",
+                image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Chen Wei is a Silicon Valley venture partner.",
+                synopsis: "Inside the mechanics of seed rounds, series A valuations, and scaling high-growth startups.",
+                chapters: [
+                    { num: "01", title: "Evaluating Founders", summary: "Spotting generational talent." },
+                    { num: "02", title: "Term Sheet Negotiations", summary: "Protecting equity." }
+                ],
+                reviews: [{ user: "Elon S.", rating: 5, date: "1 week ago", comment: "Essential for founders." }]
+            },
+            {
+                id: "book-11",
+                title: "Neural Networks & Deep Learning",
+                author: "Dr. Alan Turing",
+                category: "Technology",
+                badge: "Classic Tech",
+                rating: 5.0,
+                reviewsCount: 5200,
+                price: 55.00,
+                pages: 600,
+                year: 2025,
+                isbn: "978-0-262-03384-8",
+                image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Dr. Alan Turing leads artificial intelligence research.",
+                synopsis: "Comprehensive mathematical foundations of transformer models, LLMs, and reinforcement learning.",
+                chapters: [
+                    { num: "01", title: "Attention Mechanisms", summary: "Transformers explained from scratch." },
+                    { num: "02", title: "Gradient Descent Optimization", summary: "Loss landscapes." }
+                ],
+                reviews: [{ user: "Sam A.", rating: 5, date: "4 days ago", comment: "The ultimate AI bible." }]
+            },
+            {
+                id: "book-12",
+                title: "Beyond the Event Horizon",
+                author: "Siddharth Roy",
+                category: "Sci-Fi",
+                badge: "New Release",
+                rating: 4.7,
+                reviewsCount: 840,
+                price: 26.50,
+                pages: 340,
+                year: 2026,
+                isbn: "978-0-316-01584-4",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Siddharth Roy is an astrophysicist and novelist.",
+                synopsis: "An exploratory crew crosses a supermassive black hole and discovers an organized civilization inside.",
+                chapters: [
+                    { num: "01", title: "The Singularity Jump", summary: "Entering the accretion disk." },
+                    { num: "02", title: "Interior Physics", summary: "Time dilation realities." }
+                ],
+                reviews: [{ user: "Maya Lin", rating: 5, date: "2 weeks ago", comment: "Incredible imagination." }]
+            },
+            {
+                id: "book-13",
+                title: "The Architecture of Happiness",
+                author: "Alain de Botton",
+                category: "Philosophy",
+                badge: "Bestseller",
+                rating: 4.8,
+                reviewsCount: 3100,
+                price: 20.00,
+                pages: 280,
+                year: 2018,
+                isbn: "978-0-307-27718-3",
+                image: "https://images.unsplash.com/photo-1507842229432-15f778c1825b?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Alain de Botton is a philosopher and writer.",
+                synopsis: "How our homes and physical environments shape our thoughts, emotions, and character.",
+                chapters: [
+                    { num: "01", title: "Significance of Design", summary: "Objects and identity." },
+                    { num: "02", title: "Virtues of Architecture", summary: "Dignity in spaces." }
+                ],
+                reviews: [{ user: "John Doe", rating: 5, date: "1 month ago", comment: "Very insightful." }]
+            },
+            {
+                id: "book-14",
+                title: "Python for Advanced Engineers",
+                author: "Guido van Rossum Jr.",
+                category: "Technology",
+                badge: "Popular",
+                rating: 4.9,
+                reviewsCount: 4500,
+                price: 42.00,
+                pages: 500,
+                year: 2024,
+                isbn: "978-1-4919-5766-0",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Guido van Rossum Jr. is a core Python contributor.",
+                synopsis: "Metaprogramming, asyncio concurrency, C extensions, and memory profiling in modern Python.",
+                chapters: [
+                    { num: "01", title: "Metaprogramming Magic", summary: "Descriptors and metaclasses." },
+                    { num: "02", title: "Asyncio Internals", summary: "Event loop concurrency." }
+                ],
+                reviews: [{ user: "Raymond H.", rating: 5, date: "3 weeks ago", comment: "Masterclass in Python." }]
+            },
+            {
+                id: "book-15",
+                title: "Shadows of the Forgotten Empire",
+                author: "Tariq Al-Mansoor",
+                category: "Fiction",
+                badge: "Award Winner",
+                rating: 4.9,
+                reviewsCount: 2100,
+                price: 25.00,
+                pages: 410,
+                year: 2023,
+                isbn: "978-0-307-38789-9",
+                image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Tariq Al-Mansoor is a historian and historical fiction writer.",
+                synopsis: "An epic tale of espionage, diplomacy, and betrayal during the twilight of the Abbasid Caliphate.",
+                chapters: [
+                    { num: "01", title: "The House of Wisdom", summary: "Baghdad in 1250." },
+                    { num: "02", title: "Envoys from the East", summary: "Mongol threat approaches." }
+                ],
+                reviews: [{ user: "Fatima K.", rating: 5, date: "2 months ago", comment: "Rich historical detail." }]
+            },
+            {
+                id: "book-16",
+                title: "Principles of Economics",
+                author: "N. Gregory Mankiw Jr.",
+                category: "Business",
+                badge: "Classic",
+                rating: 4.8,
+                reviewsCount: 3800,
+                price: 65.00,
+                pages: 800,
+                year: 2023,
+                isbn: "978-1-305-58512-6",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=600",
+                authorBio: "N. Gregory Mankiw Jr. is professor of economics at Harvard.",
+                synopsis: "Macroeconomic policy, monetary systems, fiscal stimulus, and global trade dynamics.",
+                chapters: [
+                    { num: "01", title: "Ten Principles of Economics", summary: "How people make decisions." },
+                    { num: "02", title: "Market Forces of Supply & Demand", summary: "Equilibrium analysis." }
+                ],
+                reviews: [{ user: "Ben S.", rating: 5, date: "1 month ago", comment: "The gold standard textbook." }]
+            },
+            {
+                id: "book-17",
+                title: "Cyber Security Defense Manual",
+                author: "Kevin Mitnick Jr.",
+                category: "Technology",
+                badge: "Essential",
+                rating: 4.9,
+                reviewsCount: 1950,
+                price: 48.00,
+                pages: 440,
+                year: 2025,
+                isbn: "978-0-13-405556-9",
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Kevin Mitnick Jr. is an ethical hacker and security consultant.",
+                synopsis: "Advanced penetration testing, zero-day threat mitigation, and cryptography protocols.",
+                chapters: [
+                    { num: "01", title: "Zero Trust Architecture", summary: "Never trust, always verify." },
+                    { num: "02", title: "Malware Reverse Engineering", summary: "Dissecting payloads." }
+                ],
+                reviews: [{ user: "Neo A.", rating: 5, date: "5 days ago", comment: "Invaluable for security pros." }]
+            },
+            {
+                id: "book-18",
+                title: "The Martian Gardens",
+                author: "Kim Stanley Robinson II",
+                category: "Sci-Fi",
+                badge: "Bestseller",
+                rating: 4.8,
+                reviewsCount: 2700,
+                price: 28.00,
+                pages: 390,
+                year: 2024,
+                isbn: "978-0-553-56859-2",
+                image: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Kim Stanley Robinson II writes hard science fiction.",
+                synopsis: "Botanists on Mars struggle to engineer genetically modified crops to withstand dust storms.",
+                chapters: [
+                    { num: "01", title: "Regolith Soil Chemistry", summary: "Fixing toxic perchlorates." },
+                    { num: "02", title: "The Dust Storm of Year 4", summary: "Survival protocols." }
+                ],
+                reviews: [{ user: "Mark W.", rating: 5, date: "3 weeks ago", comment: "Fantastic realism." }]
+            },
+            {
+                id: "book-19",
+                title: "Ethics in the Age of AI",
+                author: "Dr. Amara Okafor",
+                category: "Philosophy",
+                badge: "Trending",
+                rating: 4.9,
+                reviewsCount: 1600,
+                price: 24.50,
+                pages: 290,
+                year: 2025,
+                isbn: "978-0-19-967114-1",
+                image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Dr. Amara Okafor teaches ethics at Oxford.",
+                synopsis: "Addressing autonomous machine decisions, algorithmic bias, and human dignity in the digital era.",
+                chapters: [
+                    { num: "01", title: "The Alignment Problem", summary: "Ensuring AI shares human values." },
+                    { num: "02", title: "Accountability in Code", summary: "Who is responsible for bugs?" }
+                ],
+                reviews: [{ user: "Susan W.", rating: 5, date: "2 weeks ago", comment: "A crucial moral roadmap." }]
+            },
+            {
+                id: "book-20",
+                title: "Global Supply Chain Logistics",
+                author: "Logistics Masterclass Team",
+                category: "Business",
+                badge: "Popular",
+                rating: 4.6,
+                reviewsCount: 920,
+                price: 39.00,
+                pages: 350,
+                year: 2023,
+                isbn: "978-0-07-337626-4",
+                image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600",
+                authorBio: "Global supply chain veterans.",
+                synopsis: "Optimizing container shipping, port congestion management, and resilient inventory networks.",
+                chapters: [
+                    { num: "01", title: "Just-In-Time vs Just-In-Case", summary: "Buffer stock strategies." },
+                    { num: "02", title: "Maritime Freight Routes", summary: "Navigating choke points." }
+                ],
+                reviews: [{ user: "Tim C.", rating: 4, date: "1 month ago", comment: "Very thorough analysis." }]
+            },
+            // Adding books 21 to 50 dynamically or explicitly to complete the 50-book collection
+            ...Array.from({length: 30}, (_, i) => {
+                const id = `book-${i + 21}`;
+                const categories = ["Technology", "Sci-Fi", "Fiction", "Business", "Philosophy", "Classics"];
+                const cat = categories[i % categories.length];
+                const authors = ["Jonathan Sterling", "Clara Oswald", "Nathaniel Hawthorne Jr.", "Beatrice Vance", "Victor Hugo II", "Elena Woods", "Arthur Conan Jr.", "Kavita Sharma", "Hiroshi Tanaka", "Zoe Saldana"];
+                const author = authors[i % authors.length];
+                const prices = [19.99, 24.50, 29.99, 34.99, 39.99, 45.00, 15.99];
+                const price = prices[i % prices.length];
+                const ratings = [4.5, 4.6, 4.7, 4.8, 4.9];
+                const rating = ratings[i % ratings.length];
+                const titles = [
+                    "The Quantum Realm Chronicles", "Digital Transformation Blueprint", "Whispers of the Ancient Gods", 
+                    "Foundations of Modern Wealth", "Beyond Silicon Valley", "The Last Starship to Alpha", 
+                    "Anatomy of Human Creativity", "Mastering Distributed Systems", "The Silent Ocean Depths", 
+                    "Corporate Finance Masterclass", "The Psychology of Innovation", "Echoes from the Past", 
+                    "Artificial Superintelligence", "The Art of Stoic Endurance", "Frontier Technologies", 
+                    "Galactic Diplomacy", "Secrets of High Performers", "The Mathematical Universe", 
+                    "Modern Javascript Architectures", "Unlocking Human Potential", "The Philosophy of Time", 
+                    "Biotech Revolution", "Cryptographic Protocols", "The Startup Growth Engine", 
+                    "Architects of Destiny", "Neural Dynamics", "The Great Economic Shift", 
+                    "Cyber Warfare Tactics", "Deep Space Navigation", "Madhu Library Special Anthology"
+                ];
+                const title = titles[i % titles.length] + ` (Vol. ${i + 1})`;
+                return {
+                    id: id,
+                    title: title,
+                    author: author,
+                    category: cat,
+                    badge: i % 3 === 0 ? "Bestseller" : (i % 2 === 0 ? "Popular" : "Recommended"),
+                    rating: rating,
+                    reviewsCount: 300 + (i * 45) % 1500,
+                    price: price,
+                    pages: 250 + (i * 15) % 350,
+                    year: 2022 + (i % 5),
+                    isbn: `978-${(i % 9) + 1}-8493-${1000 + i}-5`,
+                    image: `https://images.unsplash.com/photo-${1512820790803 + (i * 100)}?auto=format&fit=crop&q=80&w=600`,
+                    authorBio: `${author} is an expert writer and researcher in ${cat}.`,
+                    synopsis: `An exceptional volume titled '${title}' offering deep insights, practical frameworks, and engaging narratives in the field of ${cat}.`,
+                    chapters: [
+                        { num: "01", title: "Introduction and Foundations", summary: "Core concepts and historical context." },
+                        { num: "02", title: "Advanced Implementations", summary: "Practical applications and case studies." },
+                        { num: "03", title: "Future Outlook", summary: "Emerging trends and conclusion." }
+                    ],
+                    reviews: [
+                        { user: "Reader " + (i + 1), rating: 5, date: "1 week ago", comment: "An absolute joy to read. Highly recommended!" }
+                    ]
+                };
+            })
+        ];
+
+        let activeCategory = "All";
+        let searchQuery = "";
+        let currentSort = "featured";
+        let wishlist = JSON.parse(localStorage.getItem('madhu_library_wishlist')) || [];
+        let currentOpenBookId = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderBooks();
+            updateWishlistBadge();
+            lucide.createIcons();
+
+            document.getElementById('hero-search-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    triggerHeroSearch();
+                }
+            });
+        });
+
+        function renderBooks() {
+            const grid = document.getElementById('books-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            let filtered = booksData.filter(book => {
+                const matchesCat = activeCategory === 'All' || book.category === activeCategory;
+                const query = searchQuery.toLowerCase();
+                const matchesSearch = book.title.toLowerCase().includes(query) || 
+                                      book.author.toLowerCase().includes(query) || 
+                                      book.category.toLowerCase().includes(query);
+                return matchesCat && matchesSearch;
+            });
+
+            if (currentSort === 'rating') {
+                filtered.sort((a, b) => b.rating - a.rating);
+            } else if (currentSort === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (currentSort === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (currentSort === 'title') {
+                filtered.sort((a, b) => a.title.localeCompare(b.title));
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(book => {
+                const isWishlisted = wishlist.includes(book.id);
+                return `
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden book-card-hover flex flex-col justify-between group cursor-pointer" onclick="openBookModal('${book.id}')">
+                        <div class="relative aspect-[3/4] overflow-hidden bg-slate-100">
+                            <img src="${book.image}" alt="${book.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x800/4f46e5/ffffff?text=Madhu+Library'">
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-indigo-600 text-white text-[10px] font-bold uppercase tracking-wider shadow">
+                                ${book.badge}
+                            </div>
+                            <button onclick="event.stopPropagation(); toggleWishlist('${book.id}')" class="absolute top-3 right-3 p-2 rounded-xl bg-white/80 backdrop-blur-md text-slate-700 hover:bg-white shadow transition-colors">
+                                <i data-lucide="bookmark" class="w-4 h-4 ${isWishlisted ? 'fill-indigo-600 text-indigo-600' : ''}"></i>
+                            </button>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
+                                    <span class="font-semibold text-indigo-600 uppercase tracking-wider">${book.category}</span>
+                                    <div class="flex items-center text-amber-500 font-bold">
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500 mr-1"></i>
+                                        <span>${book.rating}</span>
+                                    </div>
+                                </div>
+                                <h3 class="font-serif font-bold text-lg text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">${book.title}</h3>
+                                <p class="text-xs text-slate-500 mt-0.5">by ${book.author}</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-base font-bold text-slate-900">$${book.price.toFixed(2)}</span>
+                                <span class="text-xs font-semibold text-indigo-600 group-hover:underline flex items-center">
+                                    View Details <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function filterCategory(category) {
+            activeCategory = category;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                if (btn.textContent.trim().includes(category) || (category === 'All' && btn.textContent.trim().includes('All Books'))) {
+                    btn.className = "category-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-indigo-600 text-white shadow-sm shadow-indigo-200";
+                } else {
+                    btn.className = "category-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200";
+                }
+            });
+            renderBooks();
+        }
+
+        function handleSearch() {
+            searchQuery = document.getElementById('catalog-search').value;
+            renderBooks();
+        }
+
+        function handleSort() {
+            currentSort = document.getElementById('sort-select').value;
+            renderBooks();
+        }
+
+        function triggerHeroSearch() {
+            const val = document.getElementById('hero-search-input').value;
+            document.getElementById('catalog-search').value = val;
+            searchQuery = val;
+            renderBooks();
+            document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetFilters() {
+            activeCategory = 'All';
+            searchQuery = '';
+            document.getElementById('catalog-search').value = '';
+            document.getElementById('hero-search-input').value = '';
+            document.getElementById('sort-select').value = 'featured';
+            currentSort = 'featured';
+            filterCategory('All');
+        }
+
+        function scrollToCatalog() {
+            document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openBookModal(bookId) {
+            const book = booksData.find(b => b.id === bookId);
+            if (!book) return;
+            currentOpenBookId = bookId;
+
+            document.getElementById('modal-category-tag').textContent = book.category;
+            document.getElementById('modal-badge-tag').textContent = book.badge;
+            document.getElementById('modal-book-img').src = book.image;
+            document.getElementById('modal-book-title').textContent = book.title;
+            document.getElementById('modal-book-author').textContent = book.author;
+            document.getElementById('modal-book-rating').textContent = book.rating;
+            document.getElementById('modal-book-pages').textContent = book.pages;
+            document.getElementById('modal-book-year').textContent = book.year;
+            document.getElementById('modal-book-isbn').textContent = book.isbn;
+            document.getElementById('modal-author-bio').textContent = book.authorBio;
+            document.getElementById('modal-book-price').textContent = `$${book.price.toFixed(2)}`;
+            document.getElementById('modal-book-synopsis').textContent = book.synopsis;
+
+            updateModalWishlistState();
+
+            const chaptersContainer = document.getElementById('modal-chapters-list');
+            chaptersContainer.innerHTML = book.chapters.map(ch => `
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start space-x-3">
+                    <span class="px-2.5 py-1 rounded-lg bg-indigo-100 text-indigo-700 text-xs font-bold font-mono">${ch.num}</span>
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-900">${ch.title}</h4>
+                        <p class="text-xs text-slate-500 mt-0.5">${ch.summary}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            const reviewsContainer = document.getElementById('modal-reviews-list');
+            reviewsContainer.innerHTML = book.reviews.map(rev => `
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-900">${rev.user}</span>
+                        <div class="flex items-center text-amber-500">
+                            ${'<i data-lucide="star" class="w-3 h-3 fill-amber-500"></i>'.repeat(rev.rating)}
+                            <span class="text-[10px] text-slate-400 ml-2">${rev.date}</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600">${rev.comment}</p>
+                </div>
+            `).join('');
+
+            const related = booksData.filter(b => b.id !== bookId && b.category === book.category).slice(0, 3);
+            if (related.length === 0) {
+                related.push(...booksData.filter(b => b.id !== bookId).slice(0, 3));
+            }
+            const relatedContainer = document.getElementById('modal-related-grid');
+            relatedContainer.innerHTML = related.map(rel => `
+                <div onclick="openBookModal('${rel.id}')" class="p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-indigo-300 cursor-pointer transition-all flex items-center space-x-3 group">
+                    <img src="${rel.image}" class="w-12 h-16 object-cover rounded-lg shadow-sm" onerror="this.src='https://placehold.co/200x300/4f46e5/ffffff?text=Cover'">
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">${rel.title}</h4>
+                        <p class="text-[10px] text-slate-500">${rel.author}</p>
+                        <span class="text-[10px] font-bold text-slate-900 mt-1 block">$${rel.price.toFixed(2)}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            const modal = document.getElementById('book-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('modal-content-box').classList.remove('scale-95');
+                document.getElementById('modal-content-box').classList.add('scale-100');
+            }, 10);
+
+            lucide.createIcons();
+        }
+
+        function closeBookModal() {
+            const modalBox = document.getElementById('modal-content-box');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-95');
+            setTimeout(() => {
+                document.getElementById('book-modal').classList.add('hidden');
+            }, 200);
+        }
+
+        function toggleWishlist(bookId) {
+            const index = wishlist.indexOf(bookId);
+            if (index > -1) {
+                wishlist.splice(index, 1);
+                showToast("Removed from Wishlist", "Book removed from your saved list.");
+            } else {
+                wishlist.push(bookId);
+                showToast("Added to Wishlist", "Book saved to your wishlist successfully.");
+            }
+            localStorage.setItem('madhu_library_wishlist', JSON.stringify(wishlist));
+            updateWishlistBadge();
+            renderBooks();
+            if (currentOpenBookId === bookId) {
+                updateModalWishlistState();
+            }
+        }
+
+        function toggleWishlistFromModal() {
+            if (currentOpenBookId) {
+                toggleWishlist(currentOpenBookId);
+            }
+        }
+
+        function updateModalWishlistState() {
+            if (!currentOpenBookId) return;
+            const isWishlisted = wishlist.includes(currentOpenBookId);
+            const btnText = document.getElementById('modal-wishlist-text');
+            const btnIcon = document.querySelector('#modal-wishlist-btn i');
+            
+            if (isWishlisted) {
+                btnText.textContent = "Saved in Wishlist";
+                btnIcon.classList.add('fill-indigo-600', 'text-indigo-600');
+            } else {
+                btnText.textContent = "Save to Wishlist";
+                btnIcon.classList.remove('fill-indigo-600', 'text-indigo-600');
+            }
+        }
+
+        function updateWishlistBadge() {
+            const badge = document.getElementById('wishlist-badge');
+            badge.textContent = wishlist.length;
+            if (wishlist.length > 0) {
+                badge.classList.remove('scale-0');
+                badge.classList.add('scale-100');
+            } else {
+                badge.classList.remove('scale-100');
+                badge.classList.add('scale-0');
+            }
+        }
+
+        function openWishlistModal() {
+            const container = document.getElementById('wishlist-items-container');
+            if (wishlist.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8">
+                        <p class="text-sm text-slate-500">Your wishlist is currently empty.</p>
+                    </div>
+                `;
+            } else {
+                const savedBooks = booksData.filter(b => wishlist.includes(b.id));
+                container.innerHTML = savedBooks.map(book => `
+                    <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="flex items-center space-x-3 cursor-pointer" onclick="closeWishlistModal(); openBookModal('${book.id}')">
+                            <img src="${book.image}" class="w-10 h-14 object-cover rounded-lg shadow-sm" onerror="this.src='https://placehold.co/200x300/4f46e5/ffffff?text=Cover'">
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-900">${book.title}</h4>
+                                <p class="text-[10px] text-slate-500">${book.author}</p>
+                                <span class="text-xs font-bold text-slate-900">$${book.price.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <button onclick="toggleWishlist('${book.id}'); openWishlistModal();" class="p-2 text-slate-400 hover:text-red-500 transition-colors">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+            document.getElementById('wishlist-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeWishlistModal() {
+            document.getElementById('wishlist-modal').classList.add('hidden');
+        }
+
+        function simulateBuy(editionType) {
+            showToast("Order Initiated", `Redirecting securely for ${editionType} checkout in Madhu Library...`);
+        }
+
+        function openReviewPrompt() {
+            const comment = prompt("Enter your review comment:");
+            if (comment && comment.trim() !== "") {
+                const book = booksData.find(b => b.id === currentOpenBookId);
+                if (book) {
+                    book.reviews.unshift({
+                        user: "Madhu Library Member",
+                        rating: 5,
+                        date: "Just now",
+                        comment: comment.trim()
+                    });
+                    openBookModal(currentOpenBookId);
+                    showToast("Review Added", "Thank you for sharing your review!");
+                }
+            }
+        }
+
+        function showToast(title, msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-msg').textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
